@@ -23,17 +23,17 @@ import lombok.NoArgsConstructor;
 public class ClienteDto {
 
 	private Long id;
-	@NotBlank
+	@NotBlank(message = "Não pode estar em branco!" )
 	private String nome;
-	@NotBlank
+	@NotBlank(message = "Não pode estar em branco!" )
 	private String cpf;
-	@NotBlank
+	@NotBlank(message = "Não pode estar em branco!" )
 	private String telefone;
 	@Enumerated(EnumType.STRING)
 	private Marca marca;
 	@Enumerated(EnumType.STRING)
-	private Modelo modelo;	
-	@Enumerated(EnumType.STRING)
+	private Modelo modelo;		
+	@NotBlank(message = "Não pode estar em branco!" )
 	private String placa;
 	private String dataRetirada= LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 	private String dataEntrega = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
