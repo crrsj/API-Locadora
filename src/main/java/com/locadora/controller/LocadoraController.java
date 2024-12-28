@@ -64,13 +64,13 @@ public class LocadoraController {
 		return ResponseEntity.ok().body(new ClienteDto(busca));
 	}
 	
-	@PutMapping("{id}")
+	@PutMapping
 	@Operation(summary = "Rota responsável pela atualização de uma locação")
 	@ApiResponse(responseCode = "200",description = " sucesso",content = {
 	    		@Content(mediaType = "application.json",schema = @Schema(implementation = ResponseEntity.class))
 	   })         
-	public ResponseEntity<ClienteDto>atualizar(@RequestBody @Valid ClienteDto atualizar,@PathVariable Long id){
-		var atualize = service.atualizarPorId(atualizar, id);
+	public ResponseEntity<ClienteDto>atualizar(@RequestBody @Valid ClienteDto atualizar){
+		var atualize = service.atualizar(atualizar);
 		return ResponseEntity.ok().body(new ClienteDto(atualize));
 	}
 	
