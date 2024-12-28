@@ -36,10 +36,8 @@ public class LocadoraService {
 		return buscar.get();
 	}
 	
-	public Cliente atualizarPorId(ClienteDto atualizar,Long id) {
-		var atualizando = new Cliente(atualizar);
-		buscarPorId(id);
-		atualizando.setId(id);		
+	public Cliente atualizar(ClienteDto atualizar,Long id) {
+		var atualizando = new Cliente(atualizar);				
 		return repository.save(atualizando);
 		
 	}
